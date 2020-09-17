@@ -45,13 +45,13 @@ export default function Programmers() {
   //   console.log(matchName)
   //   return matchName;
   // };
-  let matchName;
-  programmers.filter(item=>{
+  let matchName = programmers.filter(item=>{
     if(item.id===featuredId){
-      matchName=item.name;
+        return(item.name);
     }
   })
-  return matchName;
+  console.log('match=',matchName[0].name);
+  return matchName[0].name;
 };
 
 
