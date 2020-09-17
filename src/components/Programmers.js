@@ -36,24 +36,24 @@ export default function Programmers() {
     // It's going to utilize both slices of state to return the _name_ of the featured dev.
     // The beauty of closures is that we can "see" both slices of state from this region
     // of the program, without needing to inject the information through arguments.
-    // let matchName='';
-    // if (featuredId !== null){
-    //     matchName = programmers.map(item=>{
-    //     if (item.id === featuredId){
-    //       console.log(item.name);
-    //       return item.name;
-    //     }})
-    // return matchName
-    // } else return null;
-    let matchName;
-    programmers.forEach(item=>{
-      if (item.id===featuredId){
-        matchName = item.name;
-      }
-    })
-    console.log(matchName)
-    return matchName;
-  };
+  //   let matchName;
+  //   programmers.forEach(item=>{
+  //     if (item.id===featuredId){
+  //       matchName = item.name;
+  //     }
+  //   })
+  //   console.log(matchName)
+  //   return matchName;
+  // };
+  let matchName;
+  programmers.filter(item=>{
+    if(item.id===featuredId){
+      matchName=item.name;
+    }
+  })
+  return matchName;
+};
+
 
   const style = {
     fontSize: '1.5em',
