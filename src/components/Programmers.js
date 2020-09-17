@@ -36,15 +36,23 @@ export default function Programmers() {
     // It's going to utilize both slices of state to return the _name_ of the featured dev.
     // The beauty of closures is that we can "see" both slices of state from this region
     // of the program, without needing to inject the information through arguments.
-    let matchName='';
-    if (featuredId !== null){
-        matchName = programmers.map(item=>{
-        if (item.id === featuredId){
-          console.log(item.name);
-          return item.name;
-        }})
-    return matchName
-    } else return null;
+    // let matchName='';
+    // if (featuredId !== null){
+    //     matchName = programmers.map(item=>{
+    //     if (item.id === featuredId){
+    //       console.log(item.name);
+    //       return item.name;
+    //     }})
+    // return matchName
+    // } else return null;
+    let matchName;
+    programmers.forEach(item=>{
+      if (item.id===featuredId){
+        matchName = item.name;
+      }
+    })
+    console.log(matchName)
+    return matchName;
   };
 
   const style = {
@@ -76,7 +84,7 @@ export default function Programmers() {
           // Replace the hard-coded false with the correct variable.
           //added <div> section to avoid the ',,,' default values//  
           (featuredId)
-            ? <div>🎉 Let's celebrate {getNameOfFeatured()}! 🥳</div>
+            ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳`
             : 'Pick an awesome programmer'
         }
       </div>
