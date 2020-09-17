@@ -40,6 +40,7 @@ export default function Programmers() {
     if (featuredId !== null){
         matchName = programmers.map(item=>{
         if (item.id === featuredId){
+          console.log(item.name);
           return item.name;
         }})
     return matchName
@@ -73,8 +74,10 @@ export default function Programmers() {
           // Ternaries are fantastic to render "one thing or the other" depending on the "truthiness" of something.
           // Pseudo-code: if the currently featured id is truthy render text 1, otherwise render text 2.
           // Replace the hard-coded false with the correct variable.
-          (featuredId!==null) 
-            ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳`
+          //added <div> section to avoid the ',,,' default values//
+          // (featuredId!==null)   
+          (featuredId)
+            ? <div>🎉 Let's celebrate {getNameOfFeatured()}! 🥳</div>
             : 'Pick an awesome programmer'
         }
       </div>
